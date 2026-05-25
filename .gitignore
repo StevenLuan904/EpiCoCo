@@ -9,10 +9,8 @@
 !**.yaml
 !**.sh
 !**.ps1
-!gen_pep_seq*.csv
-!allele_stats_acc*.csv
 
-# 2. 排除不想被忽略的文件/文件夹 (即白名单)
+# 排除不想被忽略的文件/文件夹 (即白名单)
 !.gitignore
 !README.md
 !changelog.md
@@ -20,3 +18,6 @@
 !paper-v1/**
 !experiment_note.md
 !TECH.md
+
+# 忽略输出文件夹
+outputs/
