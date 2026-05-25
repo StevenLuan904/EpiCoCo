@@ -1,4 +1,4 @@
-# pMHCDiff: Coupling Sequence and Structure Diffusion for pMHC Design
+# pMHCDiff: Coupling Sequence and Structure Diffusion for pMHC Design [ICML 2026]
 
 <p align="center">
   <a href="https://icml.cc/Conferences/2026"><img src="https://img.shields.io/badge/ICML-2026-blue.svg" alt="ICML 2026"></a>
