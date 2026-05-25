@@ -1,0 +1,94 @@
+# Ablation no soft prompt, no cfg
+model:
+  name: diffusion
+  node_dim: 128
+  edge_dim: 32
+  self_condition: True
+  soft_prompt: False
+  denoiser:
+    backbone: NodeEdgeNet
+    num_blocks: 12
+    cutoff: 10
+    use_gate: True
+    residue_mode: 'highway'
+  freeze_mhc_node_update: False
+  freeze_mhc_pos_update: False
+  bond_len_loss: False
+  diff:
+    scaling: [5., 1., 1.]
+    num_timesteps: 1000
+    time_dim: 256
+    categorical_space: continuous
+    diff_pos:
+      beta_schedule: advance
+      scale_start: 0.9999
+      scale_end: 0.0001
+      width: 3
+    diff_atom: 
+      init_prob: tomask
+      beta_schedule: advance
+      scale_start: 0.9999
+      scale_end: 0.0001
+      width: 3
+    diff_bond:
+      init_prob: absorb
+      beta_schedule: advance
+      scale_start: 0.9999
+      scale_end: 0.0001
+      width: 3
+  init_with_real_mhc: True # 是否在采样时用真实的MHC结构初始化，否则全部加噪声初始化
+
+
+train:
+  seed: 2025
+  batch_size: 32
+  num_workers: 0
+  pin_memory: False
+  max_iters: 500_000
+  # 表示每多少iter保存一次ckpt
+  val_freq: 50000
+  pos_noise_std: 0.05
+  max_grad_norm: 50.0
+  use_amp: True
+  optimizer:
+    type: adamw
+    lr: 1.e-4
+    weight_decay: 1.e-6
+    beta1: 0.99
+    beta2: 0.999
+  scheduler:
+    type: plateau
+    factor: 0.8
+    patience: 20000
+    min_lr: 1.e-5
+
+transform:
+  use_mask_node: False
+  use_mask_edge: False
+
+dataset:
+  name: pmhc
+  root: ./data/flex_pmhc
+  path_dict:
+    # 10 A radius, pos/neg samples
+    # struct: pdb_pmhc_radius10.0_num100089.pickle
+    # esm: esm_pmhc_radius10.0_num100089.pickle
+    # esm_avg: esm_pmhc_radius10.0_num100089_avg.pickle
+
+    # All residue
+    # struct: pdb_pmhc_all_num100089.pickle
+    # esm: esm_pmhc_all_num100089.pickle
+    # esm_avg: esm_pmhc_all_num100089_avg.pickle
+
+    # 10 A radius, pos samples
+    struct: pdb_pmhc_radius10.0_num44042.pickle
+    esm: esm_pmhc_radius10.0_num44042.pickle
+    esm_avg: esm_pmhc_radius10.0_num44042_avg.pickle
+    summary: full_dataset.csv
+    processed: processed.lmdb
+  use_data: 'pmhc' # 'pmhc' or 'peptide'
+  force_reload: False
+
+chem:
+  atomic_numbers: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  mol_bond_types: [1] # 1: bond

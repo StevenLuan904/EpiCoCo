@@ -1,0 +1,22 @@
+# 1. 忽略所有文件和文件夹
+*
+# 2. 不忽略文件夹本身 (这样 Git 才能进入文件夹寻找文件)
+!*/
+
+# 3. 不忽略所有 .py 文件 (递归生效)
+!**.py
+!**.yml
+!**.yaml
+!**.sh
+!**.ps1
+!gen_pep_seq*.csv
+!allele_stats_acc*.csv
+
+# 2. 排除不想被忽略的文件/文件夹 (即白名单)
+!.gitignore
+!README.md
+!changelog.md
+!configs/**
+!paper-v1/**
+!experiment_note.md
+!TECH.md
