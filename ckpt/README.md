@@ -6,5 +6,5 @@ Example layout:
 
 ```bash
 ckpt
-├── pmhcdiff.pt
+├── epicoco.pt
 ```

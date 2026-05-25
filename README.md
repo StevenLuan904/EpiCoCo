@@ -1,14 +1,14 @@
-# pMHCDiff: Coupling Sequence and Structure Diffusion for pMHC Design [ICML 2026]
+# EpiCoCo: De Novo Epitope Generation via MHC-Context Co-Modeling and Contrastive Affinity Guidance [ICML 2026]
 
 <p align="center">
   <a href="https://icml.cc/Conferences/2026"><img src="https://img.shields.io/badge/ICML-2026-blue.svg" alt="ICML 2026"></a>
 </p>
 
-**pMHCDiff** is an SE(3)-equivariant continuous diffusion model for joint peptide sequence and structure co-design, specifically conditioned on MHC pockets. By treating residue mutation and backbone folding as a coupled dynamic process, pMHCDiff achieves biophysical fidelity in *de novo* peptide design.
+The *de novo* generation of high-affinity epitopes tailored to specific major histocompatibility complex (MHC) proteins is a pivotal challenge in computational immunotherapy. However, current methods struggle to effectively integrate the MHC context into the generation process, and often fail to guarantee high binding affinity due to the neglect of discriminative signals from non-binders. To bridge these gaps, we present **EpiCoCo**, a probabilistic framework for **Epi**tope generation via MHC-context **Co**-modeling and **Co**ntrastive affinity learning. EpiCoCo treats the pMHC complex as a dynamic, co-adaptive system by operating on the joint E(3) graph. In addition, we introduce Contrastive Affinity Guidance (CAG), an inference mechanism that leverages the gradient difference between learned high- and low-affinity distributions. CAG actively drives the generation trajectory towards high-affinity manifolds while utilizing repulsive signals to filter out candidates with poor binding potential. Extensive evaluations demonstrate that EpiCoCo achieves a mean binding free energy of -45.20 REU, a 23% improvement over the state-of-the-art, while maintaining high structural plausibility. The results validate that context co-modeling and negative-informed guidance are essential for generating valid, high-potency immunotherapeutics.
 
 ## 🚀 Overview
 
-pMHCDiff introduces a paradigm shift towards a **Structure-First** generative framework for pMHC (peptide-Major Histocompatibility Complex) binding.
+EpiCoCo introduces a paradigm shift towards a **Structure-First** generative framework for pMHC (peptide-Major Histocompatibility Complex) binding.
 - **Unified Diffusion Architecture**: Couples residue mutation and backbone folding into a single dynamic process.
 - **Affinity-Modulated Soft Prompting**: Reinterprets IC50 values as thermodynamic boundary conditions.
 - **Bipolar Manifold Steering**: Navigates the generative trajectory using contrastive gradients between high- and low-affinity priors.
@@ -94,8 +94,8 @@ Small example outputs are provided in `outputs/sample_pmhc_20260103_113056/` for
 If you find this work useful, please cite our ICML 2026 paper:
 
 <!-- ```bibtex
-@inproceedings{luan2026pmhcdiff,
-  title={pMHCDiff: Coupling Sequence and Structure Diffusion for pMHC Design},
+@inproceedings{luan2026epicoco,
+  title={EpiCoCo: De Novo Epitope Generation via MHC-Context Co-Modeling and Contrastive Affinity Guidance},
   author={Luan, Haoyang and Yu, Gufeng and Chen, Letian and Xiao, Zhenran and Huang, Yueshan and Guo, Junkun and Yang, Yang},
   booktitle={International Conference on Machine Learning (ICML)},
   year={2026}

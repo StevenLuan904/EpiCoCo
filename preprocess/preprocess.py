@@ -178,19 +178,19 @@ def main():
     parser = argparse.ArgumentParser(description="Process PDBs: Filter Structure & Extract Pocket Embeddings")
     parser.add_argument("--input_dir",
                         type=str,
-                        default="/data0/luanhaoyang/FlexStruct/pMHCDiff_v1/pdb_preprocess/pdb",
+                        default="/data0/luanhaoyang/FlexStruct/EpiCoCo_v1/pdb_preprocess/pdb",
                         help="PDB目录")
     parser.add_argument("--output_dir",
                         type=str,
-                        default="/data0/luanhaoyang/FlexStruct/pMHCDiff_v2/data/flex_pmhc/",
+                        default="/data0/luanhaoyang/FlexStruct/EpiCoCo_v2/data/flex_pmhc/",
                         help="输出目录")
     parser.add_argument("--csv_path",
                         type=str,
-                        default="/data0/luanhaoyang/FlexStruct/pMHCDiff_v2/data/flex_pmhc/full_dataset.csv",
+                        default="/data0/luanhaoyang/FlexStruct/EpiCoCo_v2/data/flex_pmhc/full_dataset.csv",
                         help="Metadata CSV 路径")
     parser.add_argument("--log_dir",
                         type=str,
-                        default="/data0/luanhaoyang/FlexStruct/pMHCDiff_v2/preprocess/logs/",
+                        default="/data0/luanhaoyang/FlexStruct/EpiCoCo_v2/preprocess/logs/",
                         help="日志目录")
     parser.add_argument("--threshold", type=float, default=-1.0, help="原子距离阈值 (Angstrom)，-1.0表示跳过筛选保留全部")
     parser.add_argument("--num", type=int, default=-1, help="处理文件数量限制 (-1为全部)")

@@ -83,8 +83,8 @@ def get_peptide_chain_head(mol_info, logger):
     The position is then added to the mol_info dictionary.
     """
     # 定义项目根目录
-    PDB_ROOT = "/data0/luanhaoyang/FlexStruct/pMHCDiff_v1"
-    PROJECT_ROOT = "/data0/luanhaoyang/FlexStruct/pMHCDiff_v2"
+    PDB_ROOT = "/data0/luanhaoyang/FlexStruct/EpiCoCo_v1"
+    PROJECT_ROOT = "/data0/luanhaoyang/FlexStruct/EpiCoCo_v2"
 
     # 使用 os.path.join 拼接成绝对路径
     pdb_dir = os.path.join(PDB_ROOT, 'pdb_preprocess/pdb/')

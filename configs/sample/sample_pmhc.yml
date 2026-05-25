@@ -1,7 +1,7 @@
 # Ablation: no soft prompt, no cfg
 model:
   # Set this to your checkpoint under ./ckpt
-  checkpoint: ckpt/pmhcdiff_v2.pt
+  checkpoint: ckpt/epicoco.pt
 
 
 # bond_predictor: ckpt/bondpred.pt
